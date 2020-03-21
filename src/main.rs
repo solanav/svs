@@ -24,5 +24,9 @@ fn main() -> std::io::Result<()> {
         };
 
         handle(buf, &mut players, src);
+
+        for i in 0..MAX_PACKET {
+            buf[i] = 0;
+        }
     }
 }

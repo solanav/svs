@@ -25,8 +25,6 @@ fn handle_shoot(packet: Packet, players: &mut HashMap<String, Player>, src: Sock
     if !players.contains_key(player_hash.as_str()) {
         return;
     }
-
-    println!("SOMEONE IS SHOOTING");
 }
 
 fn handle_transform(packet: Packet, players: &mut HashMap<String, Player>, src: SocketAddr) {
@@ -47,7 +45,6 @@ fn handle_transform(packet: Packet, players: &mut HashMap<String, Player>, src: 
             // Create player
             let player = Player::new(
                 src.ip(),
-                player_hash.clone(),
                 packet.get_transform().unwrap().0,
                 packet.get_transform().unwrap().1,
             );

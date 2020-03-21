@@ -71,7 +71,7 @@ impl TryFrom<[u8; MAX_PACKET]> for Packet {
                 let rot: Vec<&str> = data.drain(0..4).collect();
                 let rot = Quaternion::try_from(rot).unwrap();
 
-                println!(">> {:?} : {:?}", pos, rot);
+                //println!(">> {:?} : {:?}", pos, rot);
 
                 Ok(Packet {
                     typ,
@@ -81,7 +81,7 @@ impl TryFrom<[u8; MAX_PACKET]> for Packet {
             },
             SHOOT_HEADER => {
                 if data.len() != 3 {
-                    println!("Transform data did not have 3 parts");
+                    println!("Transform data did not have 3 parts: {:?}", data);
                     return Err(());
                 }
 
